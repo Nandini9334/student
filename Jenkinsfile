@@ -14,13 +14,13 @@ pipeline {
             }
         }
 
-        stage('Validate Flask files') {
-            steps {
-              bat '"C:\\Users\\POTTA NANDINI\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" --version'
-                bat 'python -m pip install -r requirements.txt'
-                bat 'python -m py_compile app.py'
-            }
-        }
+       stage('Validate Flask files') {
+    steps {
+        bat '"C:\\Users\\POTTA NANDINI\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" --version'
+        bat '"C:\\Users\\POTTA NANDINI\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install -r requirements.txt'
+        bat '"C:\\Users\\POTTA NANDINI\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m py_compile app.py'
+    }
+}
 
         stage('Build Docker image') {
             steps {
