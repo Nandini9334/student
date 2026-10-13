@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Add Student | Student Records{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Add Student</h2>
+  <form method="post" action="{{ url_for('add_student') }}">
+    <label for="name">Student name</label>
+    <input id="name" name="name" maxlength="100" required>
+    <label for="roll_number">Roll number</label>
+    <input id="roll_number" name="roll_number" maxlength="40" required>
+    <label for="branch">Branch</label>
+    <select id="branch" name="branch" required>
+      <option value="">Select branch</option>
+      <option>IT</option><option>CSE</option><option>ECE</option><option>EEE</option><option>Mechanical</option><option>Civil</option><option>Other</option>
+    </select>
+    <label for="marks">Marks (0–100)</label>
+    <input id="marks" name="marks" type="number" min="0" max="100" step="0.01" required>
+    <p><button class="button" type="submit">Save Student</button></p>
+  </form>
+</section>
+{% endblock %}

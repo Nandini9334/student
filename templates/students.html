@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}View Students | Student Records{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Student Records</h2>
+  {% if students %}
+  <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Roll No.</th><th>Name</th><th>Branch</th><th>Marks</th><th>Action</th></tr></thead>
+      <tbody>
+      {% for student in students %}
+        <tr>
+          <td>{{ student.roll_number }}</td><td>{{ student.name }}</td><td>{{ student.branch }}</td><td>{{ "%.2f"|format(student.marks) }}</td>
+          <td><form method="post" action="{{ url_for('delete_student', student_id=student.id) }}" onsubmit="return confirm('Delete this record?')"><button class="button danger" type="submit">Delete</button></form></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <p class="muted">No students added yet. Use the button below to create the first record.</p>
+  {% endif %}
+  <p><a class="button" href="{{ url_for('add_student') }}">Add Student</a></p>
+</section>
+{% endblock %}

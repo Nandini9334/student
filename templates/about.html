@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}About | Student Records{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>About this application</h2>
+  <p>This student record application demonstrates a Python Flask web application deployed through a DevOps CI/CD workflow.</p>
+  <h3>Technology stack</h3>
+  <ul><li>Python and Flask — web application</li><li>Git and GitHub — source control</li><li>Docker — container image</li><li>Kubernetes — deployment and service</li><li>Jenkins — continuous integration and deployment</li></ul>
+  <p><strong>Storage note:</strong> This lab version uses in-memory storage. Student records reset when the application process restarts, and different Kubernetes replicas may have different records.</p>
+</section>
+{% endblock %}

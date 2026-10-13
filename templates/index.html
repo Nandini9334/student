@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Home | Student Records{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Welcome to Student Record Management</h2>
+  <p class="muted">A simple web application to add, view, and manage student academic records.</p>
+  <p>Total students currently in memory:</p>
+  <div class="stats">{{ total_students }}</div>
+  <p><a class="button" href="{{ url_for('add_student') }}">Add a Student</a>
+     <a class="button secondary" href="{{ url_for('view_students') }}">View Records</a></p>
+</section>
+<section class="card">
+  <h2>Application features</h2>
+  <ul>
+    <li>Add student details and marks</li>
+    <li>View all student records</li>
+    <li>Delete a record</li>
+    <li>Health endpoint for deployment checks</li>
+  </ul>
+</section>
+{% endblock %}
