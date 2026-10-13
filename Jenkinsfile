@@ -16,7 +16,7 @@ pipeline {
 
         stage('Validate Flask files') {
             steps {
-                bat 'python --version'
+              bat '"C:\\Users\\POTTA NANDINI\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" --version'
                 bat 'python -m pip install -r requirements.txt'
                 bat 'python -m py_compile app.py'
             }
