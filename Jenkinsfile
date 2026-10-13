@@ -29,18 +29,12 @@ pipeline {
         }
 
         stage('Push image to Docker Hub') {
-            steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKERHUB_USER',
-                    passwordVariable: 'DOCKERHUB_TOKEN'
-                )]) {
-                    bat 'echo %DOCKERHUB_TOKEN%| docker login -u %DOCKERHUB_USER% --password-stdin'
-                    bat 'docker push %IMAGE_NAME%:%BUILD_NUMBER%'
-                    bat 'docker push %IMAGE_NAME%:latest'
-                }
-            }
-        }
+    steps {
+        bat 'docker login -u nandini9334 -p dhinnu@18'
+        bat 'docker push nandini9334/student-records:%BUILD_NUMBER%'
+        bat 'docker push nandini9334/student-records:latest'
+    }
+}
 
         stage('Deploy to Kubernetes') {
             steps {
