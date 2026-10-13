@@ -10,4 +10,4 @@ spec:
     - name: http
       port: 5050
       targetPort: 5050
-      nodePort: 30080
+      nodePort: 30082
